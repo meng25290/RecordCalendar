@@ -1,25 +1,22 @@
 <template>
   <div id="app">
-    {{ $t('index.hello') }}
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
     <router-view />
   </div>
 </template>
 
 <script>
+// default css
+import "@/assets/css/index.css"
+
 export default {
   name: 'App',
   data() {
     return {
-      
     }
   },
   mounted() {
-    //通过浏览器自动切换国际化语言版本
-    console.log("语言：" + navigator.language);
+    // i18n语言自动切换
+    // i18n auto language switch
     let lang = navigator.language;
     if (lang) {
       this.$i18n.locale = lang;
@@ -29,6 +26,7 @@ export default {
   }
 }
 </script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
