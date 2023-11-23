@@ -6,7 +6,7 @@
           欢迎使用
         </el-col>
         <el-col :offset="12" :span="6">
-          当前时间:{{ time }}
+          当前时间:{{ currentTime }}
         </el-col>
       </el-row>
     </el-header>
@@ -29,7 +29,6 @@
 <script>
 
 export default {
-  el: '#time',
   name: 'HomeView',
   data() {
     return {
@@ -38,7 +37,7 @@ export default {
   },
   methods: {
     currentTimeFunc: function () {
-      // this.currentTime = new Date().toLocaleString()
+      this.currentTime=this.$moment().format('YYYY')
     },
   },
   mounted() {
