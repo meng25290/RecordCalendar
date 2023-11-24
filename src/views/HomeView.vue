@@ -27,7 +27,6 @@
           </el-menu>
         </el-aside>
         <el-main>
-          <ViewAll v-if="currentPage=='All'"></ViewAll>
         </el-main>
       </el-container>
     </el-container>
@@ -37,12 +36,10 @@
 <script>
 import { mapGetters } from 'vuex';
 
-import ViewAll from '@/components/ViewAll.vue'
 
 export default {
   name: 'HomeView',
   components:{
-    ViewAll
   },
   computed: {
     ...mapGetters(['currentPage','birthdayList'])
