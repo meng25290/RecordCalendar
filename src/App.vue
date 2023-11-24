@@ -29,8 +29,8 @@ export default {
 
 <style>
 #app {
-  min-width: 768px;
-  min-height: 512px;
+  min-width: 1024px;
+  /* min-height: 512px; */
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
