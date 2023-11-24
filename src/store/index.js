@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    current: 'Today',
     birthdays: [
       {
         favorite: false,
@@ -44,9 +45,13 @@ export default new Vuex.Store({
     ]
   },
   getters: {
+    currentPage: state => state.current,
     birthdayList: state => state.birthdays
   },
   mutations: {
+    changeCurrent(state, index) {
+      state.current = index;
+    },
   },
   actions: {
   },

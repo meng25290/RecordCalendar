@@ -12,52 +12,22 @@
       <el-container>
         <el-aside width="200px">
           <el-menu :style="{ height: 'calc(100vh - 28px)' }">
-            <el-menu-item>
+            <el-menu-item @click="changeCurrentPage('Today')">
               <i class="el-icon-bell"></i>
               今日寿星
             </el-menu-item>
-            <el-menu-item>
+            <el-menu-item @click="changeCurrentPage('All')">
               <i class="el-icon-date"></i>
               查看全部
             </el-menu-item>
-            <el-menu-item>
+            <el-menu-item @click="changeCurrentPage('Add')">
               <i class="el-icon-plus"></i>
               新增数据
             </el-menu-item>
           </el-menu>
         </el-aside>
         <el-main>
-          <el-table :data="birthdayList">
-            <el-table-column prop="favorite" label="最喜欢" width="75" align="center">
-              <div slot="header">
-                最喜欢
-              </div>
-              <div slot-scope="scope">
-                <i class="el-icon-star-on" v-if="scope.row.favorite"></i>
-                <i class="el-icon-star-off" v-else></i>
-              </div>
-            </el-table-column>
-            <el-table-column prop="mark" label="标记" width="125" align="center">
-              <div slot="header">
-                标记
-              </div>
-              <div slot-scope="scope">
-                <el-tag style="width:75px;max-width: 75px;">{{ scope.row.mark }}</el-tag>
-              </div>
-            </el-table-column>
-            <el-table-column prop="name" label="姓名" :show-overflow-tooltip=true>
-            </el-table-column>
-            <el-table-column prop="birthday" label="生日" width="125">
-            </el-table-column>
-            <el-table-column prop="remarks" label="备注" :show-overflow-tooltip=true>
-            </el-table-column>
-            <el-table-column width="150" align="right">
-              <template slot-scope="scope">
-                <el-button size="mini" @click="clickEdit(scope.$index, scope.row)">编辑</el-button>
-                <el-button size="mini" type="danger" @click="clickDelete(scope.$index, scope.row)">删除</el-button>
-              </template>
-            </el-table-column>
-          </el-table>
+          <ViewAll v-if="currentPage=='All'"></ViewAll>
         </el-main>
       </el-container>
     </el-container>
@@ -67,25 +37,27 @@
 <script>
 import { mapGetters } from 'vuex';
 
+import ViewAll from '@/components/ViewAll.vue'
+
 export default {
   name: 'HomeView',
+  components:{
+    ViewAll
+  },
   computed: {
-    ...mapGetters(['birthdayList'])
+    ...mapGetters(['currentPage','birthdayList'])
   },
   data() {
     return {
-      currentTime: this.$moment().format('YYYY-MM-DD HH:mm:ss')
+      currentTime: this.$moment().format('YYYY-MM-DD HH:mm:ss'),
     }
   },
   methods: {
     currentTimeFunc: function () {
       this.currentTime = this.$moment().format('YYYY-MM-DD HH:mm:ss')
     },
-    clickEdit() {
-
-    },
-    clickDelete() {
-
+    changeCurrentPage(index){
+      this.$store.commit('changeCurrent', index);
     }
   },
   mounted() {
