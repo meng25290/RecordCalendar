@@ -14,11 +14,25 @@ export default new Vuex.Store({
         remarks: "remarks",
       },
       {
+        favorite: false,
+        name: "name",
+        mark: "mark",
+        birthday: "2023-11-24",
+        remarks: "remarks",
+      },
+      {
         favorite: true,
         name: "name12345678901234567890",
         mark: "markfamiliar",
         birthday: "2001-11-11",
         remarks: "mark12345678901234567890123456789012345678901234567890",
+      },
+      {
+        favorite: false,
+        name: "name",
+        mark: "MARK1",
+        birthday: "2001-11-8",
+        remarks: "remarks",
       },
       {
         favorite: true,
