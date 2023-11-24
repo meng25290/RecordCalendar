@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+// import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
+  // {
+  //   path: '/',
+  //   name: 'home',
+  //   component: HomeView
+  // },
   {
     path: '/today',
     name: 'today',
@@ -19,6 +19,11 @@ const routes = [
     path: '/all',
     name: 'all',
     component: () => import(/* webpackChunkName: "about" */ '../views/AllView.vue')
+  },
+  {
+    path: '/add',
+    name: 'add',
+    component: () => import(/* webpackChunkName: "about" */ '../views/AddView.vue')
   },
 
 ]

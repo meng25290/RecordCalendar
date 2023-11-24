@@ -5,7 +5,6 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    current: 'today',
     birthdays: [
       {
         favorite: false,
@@ -36,23 +35,81 @@ export default new Vuex.Store({
         remarks: "remarks",
       },
       {
+        favorite: false,
+        name: "name111",
+        mark: "mark111",
+        birthday: "2023-11-24",
+        remarks: "remarks",
+      },
+      {
         favorite: true,
         name: "中文名啊啊啊啊啊啊啊",
         mark: "中文名啊啊啊",
         birthday: "2999-99-99",
         remarks: "中文名啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
       },
+      {
+        favorite: false,
+        name: "name17555",
+        mark: "mark17555",
+        birthday: "2023-11-20",
+        remarks: "remarks",
+      },
+      {
+        favorite: false,
+        name: "name17555",
+        mark: "mark17555",
+        birthday: "2023-11-20",
+        remarks: "remarks",
+      },
+      {
+        favorite: false,
+        name: "name17555",
+        mark: "mark17555",
+        birthday: "2023-11-20",
+        remarks: "remarks",
+      },
+      {
+        favorite: false,
+        name: "name17555",
+        mark: "mark17555",
+        birthday: "2023-11-20",
+        remarks: "remarks",
+      },
+      {
+        favorite: false,
+        name: "name17555",
+        mark: "mark17555",
+        birthday: "2023-11-20",
+        remarks: "remarks",
+      },
+      {
+        favorite: false,
+        name: "name17555",
+        mark: "mark17555",
+        birthday: "2023-11-20",
+        remarks: "remarks",
+      },
+      {
+        favorite: false,
+        name: "name17555",
+        mark: "mark17555",
+        birthday: "2023-11-20",
+        remarks: "remarks",
+      },
+      {
+        favorite: false,
+        name: "name17555",
+        mark: "mark17555",
+        birthday: "2023-11-20",
+        remarks: "remarks",
+      },
     ]
   },
   getters: {
-    currentPage: state => state.current,
     birthdayList: state => state.birthdays
   },
   mutations: {
-    changeCurrent(state, index) {
-      state.current = index;
-      console.log(index);
-    },
   },
   actions: {
   },
