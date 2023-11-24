@@ -10,6 +10,7 @@ Vue.use(ElementUI);
 
 // i18n
 import i18n from './i18n';
+
 // moment
 import moment from 'moment';
 Vue.prototype.$moment = moment;
