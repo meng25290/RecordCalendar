@@ -11,19 +11,24 @@ const routes = [
   //   component: HomeView
   // },
   {
+    path: '/',
+    name: 'today',
+    component: () => import('../views/TodayView.vue')
+  },
+  {
     path: '/today',
     name: 'today',
-    component: () => import(/* webpackChunkName: "about" */ '../views/TodayView.vue')
+    component: () => import('../views/TodayView.vue')
   },
   {
     path: '/all',
     name: 'all',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AllView.vue')
+    component: () => import('../views/AllView.vue')
   },
   {
     path: '/add',
     name: 'add',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AddView.vue')
+    component: () => import('../views/AddView.vue')
   },
 
 ]

@@ -6,7 +6,8 @@
 
 <script>
 // default css
-import "@/assets/css/index.css"
+import "@/assets/css/index.css";
+// import $ from 'jquery';
 
 export default {
   name: 'App',
@@ -25,6 +26,17 @@ export default {
     }
   },
   created() {
+    // 读取文件
+    // $.ajax({
+    //   url: "birthday.txt",
+    //   dataType: "text",
+    //   success: (data) => {
+    //     this.$store.commit('loadBirthday', data);
+    //   }
+    // });
+
+    this.$store.commit('autoLoad', this.$moment);
+    
     // 自动更换到下一年
     this.$store.commit('changeBirthdayYear', this.$moment);
     setInterval(() => {
