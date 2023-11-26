@@ -23,7 +23,15 @@ export default {
     } else {
       this.$i18n.locale = 'en'
     }
-  }
+  },
+  created() {
+    // 自动更换到下一年
+    this.$store.commit('changeBirthdayYear', this.$moment);
+    setInterval(() => {
+      this.$store.commit('changeBirthdayYear', this.$moment);
+    }, 1 * 1 * 1 * 1000);
+    // h * m * s * 1000
+  },
 }
 </script>
 

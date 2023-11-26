@@ -15,6 +15,10 @@ import i18n from './i18n';
 import moment from 'moment';
 Vue.prototype.$moment = moment;
 
+// uuid
+import { v4 as uuidv4 } from 'uuid';
+Vue.prototype.$uuid = uuidv4;
+
 Vue.config.productionTip = false
 
 new Vue({
