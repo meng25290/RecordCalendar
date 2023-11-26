@@ -18,7 +18,7 @@ export default new Vuex.Store({
       {
         id: "2",
         favorite: false,
-        name: "willian dawei good nice nearby shashibiyaaaa",
+        name: "willian dawei good nice nearby shashi",
         mark: "mark",
         birthday: "2023-11-26",
         remarks: "remarks",
@@ -116,6 +116,9 @@ export default new Vuex.Store({
           day.birthday = moment(day.birthday).year(moment(day.birthday).year() + 1).format('YYYY-MM-DD');
         }
       });
+    },
+    addBirthday(state,obj){
+      state.birthdays.push(obj);
     }
   },
   actions: {

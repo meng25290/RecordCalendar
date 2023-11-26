@@ -17,7 +17,11 @@ Vue.prototype.$moment = moment;
 
 // uuid
 import { v4 as uuidv4 } from 'uuid';
-Vue.prototype.$uuid = uuidv4;
+Vue.prototype.$uuidv4 = uuidv4;
+
+// jquery
+import $ from 'jquery';
+Vue.prototype.$ = $;
 
 Vue.config.productionTip = false
 
