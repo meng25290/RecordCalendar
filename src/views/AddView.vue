@@ -11,13 +11,21 @@
         <el-main :style="{ height: `calc(100vh - ${headerHeight})` }">
           <el-row>
             <el-col :offset="6" :span="12">
-              <span><i class="el-icon-user"></i>姓名 : </span>
+              <span>
+                <i class="el-icon-user"></i>
+                <!-- 姓名 :  -->
+                {{ $t('addView.name') }}
+              </span>
               <el-input v-model="name" maxlength="35" show-word-limit style="width: 80%;"></el-input>
             </el-col>
           </el-row>
           <el-row>
             <el-col :offset="6" :span="12">
-              <span><i class="el-icon-date"></i>日期 : </span>
+              <span>
+                <i class="el-icon-date"></i>
+                <!-- 日期 :  -->
+                {{ $t('addView.date') }}
+              </span>
               <el-input v-model="month" :placeholder="this.$moment(currentDate).format('MM')" maxlength="2"
                 show-word-limit style="width: 35%;"></el-input>
               <span> - </span>
@@ -29,22 +37,33 @@
             <el-col :offset="6" :span="12">
               <el-checkbox v-model="favorite">
                 <i class="el-icon-star-on" v-if="favorite"></i><i class="el-icon-star-off" v-else></i>
-                最喜欢
+                <!-- 最喜欢 -->
+                {{ $t('addView.favorite') }}
               </el-checkbox>
               <span style="margin-right: 20px;"></span>
-              <span><i class="el-icon-brush"></i>标记 : </span>
+              <span>
+                <i class="el-icon-brush"></i>
+                <!-- 标记 :  -->
+                {{ $t('addView.mark') }}
+              </span>
               <el-input v-model="mark" maxlength="6" show-word-limit style="width: 50%;"></el-input>
             </el-col>
           </el-row>
           <el-row>
             <el-col :offset="6" :span="12">
-              <span><i class="el-icon-edit"></i>备注 : </span><el-input v-model="remarks" type="textarea" rows="3"
-                style="width: 80%;"></el-input>
+              <span>
+                <i class="el-icon-edit"></i>
+                <!-- 备注 :  -->
+                {{ $t('addView.remarks') }}
+              </span><el-input v-model="remarks" type="textarea" rows="3" style="width: 75%;"></el-input>
             </el-col>
           </el-row>
           <el-row>
             <el-col :offset="15" :span="1">
-              <el-button type="success" plain @click="addBirthday()">提交</el-button>
+              <el-button type="success" plain @click="addBirthday()">
+                <!-- 提交 -->
+                {{ $t('addView.submit') }}
+              </el-button>
             </el-col>
           </el-row>
         </el-main>
@@ -80,10 +99,10 @@ export default {
     addBirthday() {
       if (this.name == "" || this.month == "" || this.date == "" || this.mark == "") {
         this.$notify.error({
-        title: '失败',
-        message: '除备注外不能为空值',
-        duration: 3000
-      });
+          title: this.$t('fail'),
+          message: this.$t('addView.nullError'),
+          duration: 3000
+        });
         return;
       }
       let day;
@@ -96,12 +115,12 @@ export default {
           // automatically generated
           dateObj = new Date(`${this.$moment().format("YYYY")}-${this.month}-${this.date}`);
         if (isNaN(dateObj.getTime())) {
-          throw new Error('无效的日期');
+          throw new Error(this.$t('addView.dateError'));
         }
         day = this.$moment(dateObj).format("YYYY-MM-DD");
       } catch (error) {
         this.$notify.error({
-          title: '错误',
+          title: this.$t('error'),
           message: error,
           duration: 3000
         });
@@ -124,8 +143,8 @@ export default {
       this.$store.commit('autoLoad', this.$moment);
 
       this.$notify({
-        title: '成功',
-        message: '添加成功',
+        title: this.$t('success'),
+        message: this.$t('addView.addSuccess'),
         type: 'success',
         duration: 3000
       });

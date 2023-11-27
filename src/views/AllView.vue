@@ -12,7 +12,8 @@
           <el-table :data="birthdayList" :default-sort="{ prop: 'birthday', order: 'ascending' }">
             <el-table-column prop="favorite" label="最喜欢" width="100" align="center" sortable>
               <span slot="header">
-                最喜欢
+                <!-- 最喜欢 -->
+                {{ $t('allView.favorite') }}
               </span>
               <div slot-scope="scope">
                 <i class="el-icon-star-on" v-if="scope.row.favorite"></i>
@@ -21,28 +22,43 @@
             </el-table-column>
             <el-table-column prop="mark" label="标记" width="125" align="center" sortable>
               <span slot="header">
-                标记
+                <!-- 标记 -->
+                {{ $t('allView.mark') }}
               </span>
               <div slot-scope="scope">
                 <el-tag style="padding:0 12px;">{{ scope.row.mark }}</el-tag>
               </div>
             </el-table-column>
-            <el-table-column prop="name" label="姓名" :show-overflow-tooltip=true>
+            <!-- 姓名 -->
+            <el-table-column prop="name" :label="$t('allView.name')" :show-overflow-tooltip=true>
             </el-table-column>
-            <el-table-column prop="birthday" label="生日" width="125" align="center" sortable>
+            <!-- 生日 -->
+            <el-table-column prop="birthday" :label="$t('allView.birthday')" width="125" align="center" sortable>
             </el-table-column>
-            <el-table-column prop="remarks" label="备注" :show-overflow-tooltip=true>
+            <!-- 备注 -->
+            <el-table-column prop="remarks" :label="$t('allView.remarks')" :show-overflow-tooltip=true>
             </el-table-column>
-            <el-table-column width="150" align="right">
+            <el-table-column width="175" align="right">
               <template slot="header">
-                <el-button size="mini" type="info" plain round @click="importFunc()">导入</el-button>
-                <el-button size="mini" type="primary" plain round @click="exportFunc()">导出</el-button>
+                <el-button size="mini" type="info" plain round @click="importFunc()">
+                  <!-- 导入 -->
+                  {{ $t('allView.import') }}
+                </el-button>
+                <el-button size="mini" type="primary" plain round @click="exportFunc()">
+                  <!-- 导出 -->
+                  {{ $t('allView.export') }}
+                </el-button>
               </template>
               <template slot-scope="scope">
                 <!-- <el-button size="mini" @click="clickEdit(scope.row.id)">编辑</el-button> -->
                 <span style="padding-left:10px"></span>
-                <el-popconfirm title="确定删除？" @confirm="clickDelete(scope.row)">
-                  <el-button slot="reference" size="mini" type="danger">删除</el-button>
+                <!-- 确定删除? 确定 取消 -->
+                <el-popconfirm :title="$t('allView.popconfirm')" @confirm="clickDelete(scope.row)"
+                  :confirm-button-text="$t('sure')" :cancel-button-text="$t('cancel')">
+                  <el-button slot="reference" size="mini" type="danger">
+                    <!-- 删除 -->
+                    {{ $t('allView.delete') }}
+                  </el-button>
                 </el-popconfirm>
               </template>
             </el-table-column>
@@ -109,7 +125,7 @@ export default {
     return {
       headerHeight: "28px",
       dialogVisible: false,
-      id: "17f222a8-5a8d-4cbb-9052-4510c0a463ea",
+      id: "",
       selectItem: {},
     }
   },
@@ -131,12 +147,12 @@ export default {
             localStorage.setItem('birthdayData', JSON.stringify(parsedData));
             location.reload();
           } catch (error) {
-            this.$message.error("内容格式错误，请选择正确的文件");
+            this.$message.error(this.$t('allView.JsonError'));
           }
         };
         reader.readAsText(selectedFile, 'UTF-8');
       } else {
-        this.$message.error("请选择有效的文本文件(*.txt)");
+        this.$message.error(this.$t('allView.fileError'));
       }
 
       // 清空文件输入，以允许再次选择相同的文件
@@ -163,7 +179,7 @@ export default {
         document.body.removeChild(downloadLink);
         URL.revokeObjectURL(downloadLink.href);
       } else {
-        this.$message.error("没有可导出的数据");
+        this.$message.error(this.$t('allView.exportError'));
       }
     },
     // clickEdit(id) {

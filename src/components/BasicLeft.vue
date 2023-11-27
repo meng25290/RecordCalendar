@@ -2,15 +2,18 @@
   <el-menu :style="{ height: `calc(100vh - ${headerHeight})` }">
     <el-menu-item @click="changeCurrentPage('today')">
       <i class="el-icon-bell"></i>
-      今日寿星
+      <!-- 今日寿星 -->
+      {{ $t('basicLeft.today') }}
     </el-menu-item>
     <el-menu-item @click="changeCurrentPage('all')">
       <i class="el-icon-date"></i>
-      查看全部
+      <!-- 查看全部 -->
+      {{ $t('basicLeft.all') }}
     </el-menu-item>
     <el-menu-item @click="changeCurrentPage('add')">
       <i class="el-icon-plus"></i>
-      新增数据
+      <!-- 新增数据 -->
+      {{ $t('basicLeft.add') }}
     </el-menu-item>
   </el-menu>
 </template>

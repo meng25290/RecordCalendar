@@ -12,28 +12,36 @@
           <el-container>
             <!-- <button @click="test()">删除localsto</button> -->
             <el-header height="100px" style="font-size: 75px">
-              今日寿星
+              <!-- 今日寿星 -->
+              {{ $t('todayView.today') }}
             </el-header>
             <el-main>
               <el-col>
                 <el-row v-for="(item, index) in whoseBirthdayList" :key="index" style="font-size: 50px">
                   {{ item.name }}
                 </el-row>
-                <el-row v-show="whoseBirthdayList.length == 0" style="font-size: 50px">暂无....</el-row>
+                <el-row v-show="whoseBirthdayList.length == 0" style="font-size: 50px">
+                  <!-- 暂无... -->
+                  {{ $t('todayView.nodata') }}
+                </el-row>
               </el-col>
             </el-main>
           </el-container>
           <el-divider></el-divider>
           <el-container>
             <el-header height="85px" style="font-size: 65px">
-              七日提醒
+              <!-- 七日提醒 -->
+              {{ $t('todayView.seven') }}
             </el-header>
             <el-main>
               <el-col>
                 <el-row v-for="(item, index) in whoseBirthdayIsComingList" :key="index" style="font-size: 35px">
                   {{ item.name }}
                 </el-row>
-                <el-row v-show="whoseBirthdayIsComingList.length == 0" style="font-size: 35px">暂无....</el-row>
+                <el-row v-show="whoseBirthdayIsComingList.length == 0" style="font-size: 35px">
+                  <!-- 暂无... -->
+                  {{ $t('todayView.nodata') }}
+                </el-row>
               </el-col>
             </el-main>
           </el-container>
@@ -97,7 +105,7 @@ export default {
   },
   mounted() {
     setInterval(
-      this.whoseBirthday,this.whoseBirthdayIsComing
+      this.whoseBirthday, this.whoseBirthdayIsComing
       , 1000)
   }
 }

@@ -1,4 +1,57 @@
 {
+  "sure": "确定",
+  "cancel": "取消",
+  "success":"成功",
+  "fail":"失败",
+  "error":"错误",
+
   "index.hello": "你好世界",
-  "index.home": "主页"
+  "index.home": "主页",
+
+
+
+  "basicTop.currentTime": "当前时间",
+
+
+
+  "basicLeft.today": "今日寿星",
+  "basicLeft.all":"查看全部",
+  "basicLeft.add":"新增数据",
+
+
+
+  "todayView.today": "今日寿星",
+  "todayView.seven":"七日提醒",
+  "todayView.nodata": "暂无...",
+
+
+
+  "allView.favorite":"最喜欢",
+  "allView.mark":"标记",
+  "allView.import":"导入",
+  "allView.export":"导出",
+  "allView.delete":"删除",
+
+  "allView.name":"姓名",
+  "allView.birthday":"生日",
+  "allView.remarks":"备注",
+  "allView.popconfirm":"确定删除?",
+
+  "allView.JsonError":"内容格式错误，请选择正确的文件",
+  "allView.fileError": "请选择有效的文本文件(*.txt)",
+  "allView.exportError": "没有可导出的数据",
+
+
+
+  "addView.name":"姓名",
+  "addView.date":"日期",
+  "addView.favorite":"最喜欢",
+  "addView.mark":"标记",
+  "addView.remarks":"备注",
+  "addView.submit":"提交",
+
+  "addView.nullError":"除备注外不能为空值",
+  "addView.dateError":"无效的日期",
+  "addView.addSuccess":"添加成功"
+
 }

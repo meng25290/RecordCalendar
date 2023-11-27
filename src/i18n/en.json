@@ -1,4 +1,56 @@
 {
+  "sure": "sure",
+  "cancel": "cancel",
+  "success":"success",
+  "fail":"fail",
+  "error":"error",
+
   "index.hello": "HELLO WORLD",
-  "index.home": "HOME"
+  "index.home": "HOME",
+
+
+
+  "basicTop.currentTime": "Current Time",
+
+
+
+  "basicLeft.today": "TODAY",
+  "basicLeft.all":"VIEW ALL",
+  "basicLeft.add":"ADD DATA",
+
+
+
+  "todayView.today": "Today's birthday star",
+  "todayView.seven":"Seven day reminder",
+  "todayView.nodata": "None...",
+
+
+
+  "allView.favorite":"favorite",
+  "allView.mark":"mark",
+  "allView.import":"import",
+  "allView.export":"export",
+  "allView.delete":"delete",
+
+  "allView.name":"name",
+  "allView.birthday":"birthday",
+  "allView.remarks":"remarks",
+  "allView.popconfirm":"confirm delete?",
+
+  "allView.JsonError":"Content format error, please select the correct file",
+  "allView.fileError": "Please select a valid text file(*.txt)",
+  "allView.exportError": "No data available for export",
+
+
+
+  "addView.name":"name",
+  "addView.date":"date",
+  "addView.favorite":"favorite",
+  "addView.mark":"mark",
+  "addView.remarks":"remarks",
+  "addView.submit":"submit",
+
+  "addView.nullError":"Cannot be empty except for remarks",
+  "addView.dateError":"Invalid date",
+  "addView.addSuccess":"Added successfully"
 }
