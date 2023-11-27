@@ -78,10 +78,23 @@ export default {
   },
   methods: {
     addBirthday() {
+      if (this.name == "" || this.month == "" || this.date == "" || this.mark == "") {
+        this.$notify.error({
+        title: '失败',
+        message: '除备注外不能为空值',
+        duration: 3000
+      });
+        return;
+      }
       let day;
       try {
-        // automatically generated
-        const dateObj = new Date(`${this.$moment().format("YYYY")}-${this.month}-${this.date}`);
+        let dateObj;
+        // 闰年操作，固定为2020起步，后续自动更新再修正
+        if (parseInt(this.month) == 2 && parseInt(this.date) == 29) {
+          dateObj = new Date(`${this.$moment("2020").format("YYYY")}-${this.month}-${this.date}`)
+        } else
+          // automatically generated
+          dateObj = new Date(`${this.$moment().format("YYYY")}-${this.month}-${this.date}`);
         if (isNaN(dateObj.getTime())) {
           throw new Error('无效的日期');
         }

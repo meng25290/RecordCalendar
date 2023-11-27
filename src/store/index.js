@@ -112,15 +112,10 @@ export default new Vuex.Store({
     // 自动更换到下一年
     changeBirthdayYear(state, moment) {
       state.birthdays.forEach(day => {
-        // if (day.birthday.substring(5) == "02-29"  && moment(day.birthday).isLeapYear() != true) {
-        //   let year = moment(day.birthday).year;
-        //   if(year.isLeapYear() != true){
-        //     year += 1
-        //   }
-        //   day.birthday = moment(day.birthday).year(year).format('YYYY-MM-DD');
-        //   console.log(day.birthday);
-        // }
-        if (moment(day.birthday).isBefore(moment().format('YYYY-MM-DD'))) {
+        // 闰年操作
+        if (day.birthday.substring(5) == "02-29" && moment(day.birthday).isBefore(moment().format('YYYY-MM-DD'))) {
+          day.birthday = moment(day.birthday).year(moment(day.birthday).year() + 4).format('YYYY-MM-DD');
+        } else if (moment(day.birthday).isBefore(moment().format('YYYY-MM-DD'))) {
           day.birthday = moment(day.birthday).year(moment(day.birthday).year() + 1).format('YYYY-MM-DD');
         }
       });
