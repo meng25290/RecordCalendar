@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    birthdays:[],
+    birthdays: [],
     // birthdays: [
     //   {
     //     id: "1",
@@ -112,6 +112,14 @@ export default new Vuex.Store({
     // 自动更换到下一年
     changeBirthdayYear(state, moment) {
       state.birthdays.forEach(day => {
+        // if (day.birthday.substring(5) == "02-29"  && moment(day.birthday).isLeapYear() != true) {
+        //   let year = moment(day.birthday).year;
+        //   if(year.isLeapYear() != true){
+        //     year += 1
+        //   }
+        //   day.birthday = moment(day.birthday).year(year).format('YYYY-MM-DD');
+        //   console.log(day.birthday);
+        // }
         if (moment(day.birthday).isBefore(moment().format('YYYY-MM-DD'))) {
           day.birthday = moment(day.birthday).year(moment(day.birthday).year() + 1).format('YYYY-MM-DD');
         }
@@ -119,15 +127,20 @@ export default new Vuex.Store({
     },
     // 自动读取localStorage
     autoLoad(state) {
-      state.birthdays=JSON.parse(localStorage.getItem('birthdayData'));
+      // 新建无对象判断
+      if (localStorage.getItem('birthdayData') == null) {
+        const birthdayData = [];
+        localStorage.setItem('birthdayData', JSON.stringify(birthdayData));
+      }
+      state.birthdays = JSON.parse(localStorage.getItem('birthdayData'));
     },
     // 自动存储到localStorage
     autoSave(state) {
       localStorage.setItem('birthdayData', JSON.stringify(state.birthdays));
     },
-    addBirthday(state,obj){
+    addBirthday(state, obj) {
       state.birthdays.push(obj);
-    }
+    },
   },
   actions: {
   },
