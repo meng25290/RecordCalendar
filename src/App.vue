@@ -33,6 +33,10 @@ export default {
       this.$store.commit('changeBirthdayYear', this.$moment);
     }, 1 * 1 * 1 * 1000);
     // h * m * s * 1000
+
+    if (this.$moment().diff(localStorage.getItem('birthdayDataSave'), 'days')) {
+      this.$message.error(this.$t('app.threeDays'));
+    }
   },
 }
 </script>

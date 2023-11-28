@@ -186,6 +186,9 @@ export default {
         // 清理
         document.body.removeChild(downloadLink);
         URL.revokeObjectURL(downloadLink.href);
+
+        // 保存时间更新
+        localStorage.setItem('birthdayDataSave', this.$moment().format("YYYY-MM-DD"));
       } else {
         this.$message.error(this.$t('allView.exportError'));
       }
