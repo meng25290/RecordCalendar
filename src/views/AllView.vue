@@ -145,12 +145,20 @@ export default {
           try {
             const parsedData = JSON.parse(fileContent);
             localStorage.setItem('birthdayData', JSON.stringify(parsedData));
-            location.reload();
+
+            // 显示导入成功的提示
+            this.$message.success(this.$t('allView.importSuccess'));
+
+            // 等待3秒钟后重新加载页面
+            setTimeout(() => {
+              location.reload();
+            }, 3000);
           } catch (error) {
             this.$message.error(this.$t('allView.JsonError'));
           }
         };
         reader.readAsText(selectedFile, 'UTF-8');
+
       } else {
         this.$message.error(this.$t('allView.fileError'));
       }

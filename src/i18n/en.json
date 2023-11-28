@@ -37,6 +37,7 @@
   "allView.remarks":"remarks",
   "allView.popconfirm":"confirm delete?",
 
+  "allView.importSuccess":"Import successful, refresh in 3 seconds",
   "allView.JsonError":"Content format error, please select the correct file",
   "allView.fileError": "Please select a valid text file(*.txt)",
   "allView.exportError": "No data available for export",

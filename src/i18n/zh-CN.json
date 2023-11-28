@@ -37,6 +37,7 @@
   "allView.remarks":"备注",
   "allView.popconfirm":"确定删除?",
 
+  "allView.importSuccess":"导入成功,3秒后刷新",
   "allView.JsonError":"内容格式错误，请选择正确的文件",
   "allView.fileError": "请选择有效的文本文件(*.txt)",
   "allView.exportError": "没有可导出的数据",
