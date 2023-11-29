@@ -20,14 +20,14 @@ import { v4 as uuidv4 } from 'uuid';
 Vue.prototype.$uuidv4 = uuidv4;
 
 // jquery
-import $ from 'jquery';
-Vue.prototype.$ = $;
+// import $ from 'jquery';
+// Vue.prototype.$ = $;
 
 Vue.config.productionTip = false
 
 new Vue({
   i18n,
-  $,
+  // $,
   router,
   store,
   render: h => h(App)
